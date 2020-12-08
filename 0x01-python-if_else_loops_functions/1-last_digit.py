@@ -6,8 +6,8 @@ if n < 0:
     n = n * -1
 while n >= 10:
     n = n % 10
-    if number < 0:
-        n = n * -1
+if number < 0:
+    n = n * -1
 if n > 5:
     print("Last digit of {:d} is {:d}".format(number, n), end=" ")
     print("and is greater than 5")

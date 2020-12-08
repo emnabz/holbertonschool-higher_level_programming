@@ -2,14 +2,18 @@
 import random
 number = random.randint(-10000, 10000)
 n = number
-i = 1
-while n >= 10:
-    n = n / 10
-    i = i * 10
-n = number % i
+if n < 0:
+    n = n * -1
+while n > 10:
+    n = n % 10
+if number < 0:
+    n = n * -1
 if n > 5:
-    print(" the last digit of {:d} is {:d} is greater than 5".format(number, n))
+    print("The last digit of {:d} is {:d}".format(number, n), end="")
+    print("is greater than 5")
 elif n == 0:
-    print("the last digit of {:d} is {:d} and is 0".format(number, n))
+    print("The last digit of {:d}".format(number, n), end="")
+    print("is {:d} and is 0")
 elif n < 6 and n != 0:
-    print("the last digit of {:d} is {:d} and is less than 6 and not 0".format(number, n))
+    print("The last digit of {:d} is {:d}".format(number, n), end="")
+    print("and is less than 6 and not 0")

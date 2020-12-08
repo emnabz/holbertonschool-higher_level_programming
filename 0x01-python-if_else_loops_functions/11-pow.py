@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 def pow(a, b):
-    a = a ** b
-    return a
+    sum = a ** b
+    return sum

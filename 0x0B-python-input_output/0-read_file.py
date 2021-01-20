@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+""" no module """
+
+
 def read_file(filename=""):
-    with open(filename, mode="r", encoding="utf-8") as file:
-        print(f.read(), end="")
+    """ read from file """
+    with open(filename, encoding="utf-8", mode="r") as file:
+        print(file.read(), end="")

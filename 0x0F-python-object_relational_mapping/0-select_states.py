@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 """create states table in hbtn_0e_0_usa with some data"""
-
-
 import MySQLdb
 import sys
 
+
 def print_all_states():
+    """print all states"""
     username = sys.argv[1]
     password = sys.argv[2]
     dataBase = sys.argv[3]
@@ -25,4 +25,4 @@ def print_all_states():
     cur.close()
     db.close()
 if __name__ == "__main__":
-  print_all_states()
+    print_all_states()

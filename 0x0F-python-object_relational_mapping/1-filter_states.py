@@ -15,7 +15,7 @@ def print_table_state():
                          passwd=password,
                          db=dataBase)
     cur = db.cursor()
-    cur.execute("SELECT id, name FROM states WHERE name LIKE 'N%'ORDER BY states.id ASC")
+    cur.execute("SELECT id, name FROM states WHERE name LIKE 'N%' ORDER BY states.id ASC")
     names = cur.fetchall()
     for name in names:
         print(name)

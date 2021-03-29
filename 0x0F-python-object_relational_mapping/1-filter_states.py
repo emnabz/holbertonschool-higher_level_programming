@@ -3,8 +3,8 @@
 import MySQLdb
 import sys
 
-def print_all_states():
-    """print all states"""
+def print_table_state():
+    """print table state"""
     username = sys.argv[1]
     password = sys.argv[2]
     dataBase = sys.argv[3]
@@ -16,13 +16,14 @@ def print_all_states():
     db=dataBase)
 
     cur = db.cursor()
-    cur.execute("SELECT * WHERE states.name LIKE 'N%' ORDER BY states.id ASC")
-    states = cur.fetchall()
-    for state in states:
-        print (state)
+    cur.execute("SELECT *\ FROM states\ WHERE name LIKE 'N%' ORDER BY states.id ASC")
+    names = cur.fetchall()
+    for name in names:
+        print(name)
 
     cur.close()
     db.close()
 
 if __name__ == "__main__":
-    print_all_states()
+  print_table_state()
+

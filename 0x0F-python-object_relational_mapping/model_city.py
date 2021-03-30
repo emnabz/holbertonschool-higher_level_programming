@@ -1,30 +1,18 @@
--- Create database hbtn_0e_14_usa, tables states and cities + some data
-CREATE DATABASE IF NOT EXISTS hbtn_0e_14_usa
-USE hbtn_0e_14_usa
+#!/usr/bin/python3
+"""
+the class definition of City
+"""
 
-CREATE TABLE IF NOT EXISTS states(
-    id INT NOT NULL AUTO_INCREMENT,
-    name VARCHAR(256) NOT NULL,
-    PRIMARY KEY(id)
-)
-INSERT INTO states(name) VALUES("California"), ("Arizona"),
-("Texas"), ("New York"), ("Nevada")
+import sqlalchemy
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import Column, Integer, String, ForeignKey
+Base = declarative_base()
 
-CREATE TABLE IF NOT EXISTS cities(
-    id INT NOT NULL AUTO_INCREMENT,
-    state_id INT NOT NULL,
-    name VARCHAR(256) NOT NULL,
-    PRIMARY KEY(id),
-    FOREIGN KEY(state_id) REFERENCES states(id)
-)
-INSERT INTO cities(state_id, name)
-VALUES(1, "San Francisco"),
-(1, "San Jose"), (1, "Los Angeles"), (1, "Fremont"), (1, "Livermore")
-INSERT INTO cities(state_id, name)
-VALUES(2, "Page"), (2, "Phoenix")
-INSERT INTO cities(state_id, name)
-VALUES(3, "Dallas"), (3, "Houston"), (3, "Austin")
-INSERT INTO cities(state_id, name)
-VALUES(4, "New York")
-INSERT INTO cities(state_id, name)
-VALUES(5, "Las Vegas"), (5, "Reno"), (5, "Henderson"), (5, "Carson City")
+
+class City(Base):
+    """Representation of city class"""
+
+    __tablename__ = 'cities'
+    id = Column(Integer, autoincrement=True, primary_key=True, nullable=False)
+    name = Column(String(128), nullable=False)
+    state_id = Column(Integer, ForeignKey('id'), nullable=False)

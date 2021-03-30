@@ -16,16 +16,12 @@ def print_all_cites():
                                db=sys.argv[3],
                                charset="utf8"
                                )
-    state_name = sys.argv[4]
     cur = database.cursor()
-    cur.execute("""SELECT cities.name FROM cities JOIN states
-    ON cities.state_id=states.id
-    WHERE states.name LIKE %s ORDER BY cities.id""", (state_name,))
-    row = cur.fetchall()
-    re = ""
-    for i in row:
-        re += i[0] + ", "
-        print(re[0:-2:])
+    cur.execute("SELECT cities.name FROM cities JOIN states ON \
+    cities.state_id=states.id WHERE states.name \
+    LIKE %s ORDER BY cities.id", (sys.argv[4],))
+    rows = cur.fetchall()
+    print(", ".join(city[0] for city in rows))
     cur.close()
     database.close()
 

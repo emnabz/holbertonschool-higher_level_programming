@@ -23,6 +23,6 @@ if __name__ == "__main__":
     re = session.query(City, State).filter(City.state_id == State.id)\
         .order_by(City.id).all()
     for C, x in re:
-        print("{}: ,({}) {}".format(x.name, C.id, C.name))
+        print("{}: ({}) {}".format(x.name, C.id, C.name))
     session.commit()
     session.close()

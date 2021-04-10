@@ -16,8 +16,8 @@ def print_all_names():
                                )
     cur = database.cursor()
     search = sys.argv[4]
-    cur.execute("""SELECT id,name FROM states WHERE name = %s
-        ORDER BY id ASC""", (search, ))
+    cur.execute("""SELECT id,name FROM states WHERE name = {%s}
+                ORDER BY id ASC""",(search, ))
     row = cur.fetchall()
     for i in row:
         print(i)

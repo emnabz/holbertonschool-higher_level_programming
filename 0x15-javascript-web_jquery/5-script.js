@@ -1,5 +1,5 @@
 $(function () {
-  $('#update_header').click(function () {
-    $('header').text('New Header!!!');
+  $('#add_item').click(function () {
+    $('ul.my_list').append('<li>Item</li>');
   });
 });
